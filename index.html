@@ -10,15 +10,22 @@
     <h1>Trading Card Collection</h1>
 
     <div>
+        <input type="file" id="cardImage" accept="image/*">
         <input type="text" id="cardName" placeholder="Enter card name">
+        <input type="number" id="cardNumber" placeholder="Enter card number (optional)">
         <button onclick="addCard()">Add Card</button>
     </div>
 
+    <h2>Categories</h2>
+    <button onclick="filterCategory('Competitors')">Competitors</button>
+    <button onclick="filterCategory('Entrances')">Entrances</button>
+    <div id="categories"></div>
+
     <h2>Collection</h2>
-    <ul id="collection"></ul>
+    <ul id="collection" class="draggable-list"></ul>
 
     <h2>Deck (32 cards max)</h2>
-    <ul id="deck"></ul>
+    <ul id="deck" class="draggable-list"></ul>
     <button onclick="clearDeck()">Clear Deck</button>
 
     <script src="script.js"></script>
