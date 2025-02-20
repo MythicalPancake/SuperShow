@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardElement = document.createElement("div");
             cardElement.classList.add("card");
             cardElement.textContent = `${card.name} (No. ${card.number})`;
+            
+            const addToDeckButton = document.createElement("button");
+            addToDeckButton.textContent = "Add to Deck";
+            addToDeckButton.addEventListener("click", () => addToDeck(card));
+            
+            cardElement.appendChild(addToDeckButton);
             collectionDisplay.appendChild(cardElement);
         });
     }
@@ -61,7 +67,33 @@ document.addEventListener("DOMContentLoaded", () => {
             const deckElement = document.createElement("div");
             deckElement.classList.add("deck");
             deckElement.textContent = deck.name;
+            
+            const deckCards = document.createElement("ul");
+            deck.cards.forEach(card => {
+                const cardItem = document.createElement("li");
+                cardItem.textContent = `${card.name} (No. ${card.number})`;
+                deckCards.appendChild(cardItem);
+            });
+            
+            deckElement.appendChild(deckCards);
             deckList.appendChild(deckElement);
         });
+    }
+    
+    function addToDeck(card) {
+        if (decks.length === 0) {
+            alert("No decks available. Create a deck first.");
+            return;
+        }
+        
+        const deckName = prompt("Enter the deck name to add this card:");
+        const deck = decks.find(d => d.name === deckName);
+        
+        if (deck) {
+            deck.cards.push(card);
+            displayDecks();
+        } else {
+            alert("Deck not found.");
+        }
     }
 });
