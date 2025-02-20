@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Card Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#decks">Decks</a></li>
+            <li><a href="#storages">Storages</a></li>
+            <li><button id="logout">Log Out</button></li>
+        </ul>
+    </nav>
+    
+    <section id="home">
+        <h1>Welcome to Your Card Collection</h1>
+        <button id="scanCard">Scan a Card</button>
+        <button id="manualInput">Manually Add Card</button>
+    </section>
+    
+    <section id="collection">
+        <h2>Your Collection</h2>
+        <div id="cardSorter">
+            <label for="sortNumber">Sort by Number:</label>
+            <select id="sortNumber">
+                <option value="all">All</option>
+                <!-- Number options 1-30 -->
+                <script>
+                    for (let i = 1; i <= 30; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+        <div id="collectionDisplay"></div>
+    </section>
+    
+    <section id="decks">
+        <h2>Your Decks</h2>
+        <button id="createDeck">Create New Deck</button>
+        <div id="deckList"></div>
+    </section>
+    
+    <section id="storages">
+        <h2>Storages</h2>
+        <p>Feature under development...</p>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
