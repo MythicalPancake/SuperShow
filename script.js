@@ -18,14 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Earth Golem", number: 15, competitor: "Gamma", entrance: "Main", image: "earth_golem.jpg" }
     ];
     
+    function showPage(target) {
+        pages.forEach(page => page.style.display = "none");
+        document.getElementById(target).style.display = "block";
+    }
+    
     navTabs.forEach(tab => {
         tab.addEventListener("click", event => {
             event.preventDefault();
-            const target = event.target.dataset.tab;
-            pages.forEach(page => page.style.display = "none");
-            document.getElementById(target).style.display = "block";
+            showPage(event.target.dataset.tab);
         });
     });
+    
+    showPage("home"); // Ensure the home page is visible by default
     
     searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase();
@@ -44,17 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
         let filteredCollection = collection;
         
         const selectedNumber = sortNumber.value;
-        const selectedCompetitor = sortCompetitor.value;
-        const selectedEntrance = sortEntrance.value;
+        const selectedCompetitor = sortCompetitor.value.toLowerCase();
+        const selectedEntrance = sortEntrance.value.toLowerCase();
         
         if (selectedNumber !== "all") {
             filteredCollection = filteredCollection.filter(card => card.number == selectedNumber);
         }
         if (selectedCompetitor !== "all") {
-            filteredCollection = filteredCollection.filter(card => card.competitor === selectedCompetitor);
+            filteredCollection = filteredCollection.filter(card => card.competitor.toLowerCase().includes(selectedCompetitor));
         }
         if (selectedEntrance !== "all") {
-            filteredCollection = filteredCollection.filter(card => card.entrance === selectedEntrance);
+            filteredCollection = filteredCollection.filter(card => card.entrance.toLowerCase().includes(selectedEntrance));
         }
         
         filteredCollection.forEach(card => {
@@ -112,6 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     sortNumber.addEventListener("change", displayCollection);
-    sortCompetitor.addEventListener("change", displayCollection);
-    sortEntrance.addEventListener("change", displayCollection);
+    sortCompetitor.addEventListener("input", displayCollection);
+    sortEntrance.addEventListener("input", displayCollection);
 });
