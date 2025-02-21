@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Fire Dragon", number: 5, competitor: "Alpha", entrance: "Main", image: "fire_dragon.jpg" },
     { name: "Water Serpent", number: 10, competitor: "Beta", entrance: "Side", image: "water_serpent.jpg" },
     { name: "Earth Golem", number: 15, competitor: "Gamma", entrance: "Main", image: "earth_golem.jpg" },
-    { name: "Earth Golem", competitor: "Hello", image: "earth_golem.jpg" }
+    { name: "Earth Go", competitor: "Hello", image: "earth_go.jpg" }
   ];
 
   // Navigation: show one page at a time.
