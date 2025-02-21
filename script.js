@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // DOM Elements
   const navTabs = document.querySelectorAll(".nav-tab");
   const pages = document.querySelectorAll(".page");
   const scanCardButton = document.getElementById("scanCard");
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const createDeckButton = document.getElementById("createDeck");
   const deckList = document.getElementById("deckList");
 
+  // Data storage
   let collection = [];
   let decks = [];
   let removeMode = false;
@@ -22,15 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Earth Golem", number: 15, competitor: "Gamma", entrance: "Main", image: "earth_golem.jpg" }
   ];
 
-  // Navigation
+  // Navigation: show one page at a time.
   function showPage(target) {
     pages.forEach(page => page.classList.remove("active"));
     document.getElementById(target).classList.add("active");
   }
   navTabs.forEach(tab => {
-    tab.addEventListener("click", event => {
-      event.preventDefault();
-      showPage(event.target.dataset.tab);
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = e.target.getAttribute("data-tab");
+      showPage(target);
     });
   });
 
@@ -75,97 +78,96 @@ document.addEventListener("DOMContentLoaded", () => {
       card.name.toLowerCase().includes(query)
     );
     filteredCards.forEach(card => {
-      const cardElement = createCardElement(card, "search");
-      searchResults.appendChild(cardElement);
+      const cardEl = createCardElement(card, "search");
+      searchResults.appendChild(cardEl);
     });
   });
 
   // Display collection with sorting
   function displayCollection() {
     collectionGrid.innerHTML = "";
-    let filteredCollection = collection;
+    let filtered = collection.slice();
     
     const selectedNumber = sortNumber.value;
     const selectedCompetitor = sortCompetitor.value.toLowerCase();
     const selectedEntrance = sortEntrance.value.toLowerCase();
     
     if (selectedNumber !== "all") {
-      filteredCollection = filteredCollection.filter(card => card.number == selectedNumber);
+      filtered = filtered.filter(card => card.number == selectedNumber);
     }
     if (selectedCompetitor.trim() !== "" && selectedCompetitor !== "all") {
-      filteredCollection = filteredCollection.filter(card =>
+      filtered = filtered.filter(card =>
         card.competitor.toLowerCase().includes(selectedCompetitor)
       );
     }
     if (selectedEntrance.trim() !== "" && selectedEntrance !== "all") {
-      filteredCollection = filteredCollection.filter(card =>
+      filtered = filtered.filter(card =>
         card.entrance.toLowerCase().includes(selectedEntrance)
       );
     }
     
-    filteredCollection.forEach(card => {
-      const cardElement = createCardElement(card, "collection");
-      collectionGrid.appendChild(cardElement);
+    filtered.forEach(card => {
+      const cardEl = createCardElement(card, "collection");
+      collectionGrid.appendChild(cardEl);
     });
   }
 
-  // Create card element based on context:
-  // "search": shows "Add to Collection" button.
-  // "collection": shows "Add to Deck" if removeMode is off, or "Remove from Collection" if removeMode is on.
-  // "deck": shows "Add to Deck" button.
+  // Create card element (context: "search", "collection", or "deck")
   function createCardElement(card, context) {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    cardElement.innerHTML = `
+    const el = document.createElement("div");
+    el.classList.add("card");
+    el.innerHTML = `
       <img src="${card.image}" alt="${card.name}" class="card-image">
       <strong>${card.name}</strong>
     `;
     if (context === "search") {
-      const addToCollectionButton = document.createElement("button");
-      addToCollectionButton.textContent = "Add to Collection";
-      addToCollectionButton.addEventListener("click", () => {
+      const btn = document.createElement("button");
+      btn.textContent = "Add to Collection";
+      btn.addEventListener("click", () => {
         collection.push(card);
         displayCollection();
       });
-      cardElement.appendChild(addToCollectionButton);
+      el.appendChild(btn);
     } else if (context === "collection") {
       if (removeMode) {
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove from Collection";
-        removeButton.addEventListener("click", () => {
-          const index = collection.indexOf(card);
-          if (index > -1) {
-            collection.splice(index, 1);
+        const btn = document.createElement("button");
+        btn.textContent = "Remove from Collection";
+        btn.addEventListener("click", () => {
+          // Remove only one occurrence (if duplicates exist)
+          const idx = collection.findIndex(c => c === card);
+          if (idx > -1) {
+            collection.splice(idx, 1);
             displayCollection();
           }
         });
-        cardElement.appendChild(removeButton);
+        el.appendChild(btn);
       } else {
-        const addToDeckButton = document.createElement("button");
-        addToDeckButton.textContent = "Add to Deck";
-        addToDeckButton.addEventListener("click", () => {
+        const btn = document.createElement("button");
+        btn.textContent = "Add to Deck";
+        btn.addEventListener("click", () => {
           addToDeck(card);
         });
-        cardElement.appendChild(addToDeckButton);
+        el.appendChild(btn);
       }
     } else if (context === "deck") {
-      const addToDeckButton = document.createElement("button");
-      addToDeckButton.textContent = "Add to Deck";
-      addToDeckButton.addEventListener("click", () => {
+      const btn = document.createElement("button");
+      btn.textContent = "Add to Deck";
+      btn.addEventListener("click", () => {
         addToDeck(card);
       });
-      cardElement.appendChild(addToDeckButton);
+      el.appendChild(btn);
     }
-    return cardElement;
+    return el;
   }
 
-  // Add card to deck (from card element)
+  // Function to add a card to a deck
   function addToDeck(card) {
     if (decks.length === 0) {
-      alert("No decks available. Create a deck first.");
+      alert("No decks available. Create one first.");
       return;
     }
     const deckName = prompt("Enter the deck name to add this card:");
+    if (!deckName) return;
     const deck = decks.find(d => d.name.toLowerCase() === deckName.toLowerCase());
     if (deck) {
       deck.cards.push(card);
@@ -175,9 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Add card to deck (from deck page)
+  // Function to add a card from the collection to a specific deck (from deck page)
   function addCardToDeck(deck) {
     const cardName = prompt("Enter the name of the card from your collection to add to this deck:");
+    if (!cardName) return;
     const card = collection.find(c => c.name.toLowerCase() === cardName.toLowerCase());
     if (card) {
       deck.cards.push(card);
@@ -196,46 +199,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Display decks with Load/Hide toggle and an "Add Card" button when loaded.
+  // Display decks with Load/Hide toggle and an "Add Card" button when loaded
   function displayDecks() {
     deckList.innerHTML = "";
     decks.forEach(deck => {
-      const deckElement = document.createElement("div");
-      deckElement.classList.add("deck");
-      let deckHtml = `<strong>${deck.name}</strong> `;
-      if (deck.loaded) {
-        deckHtml += `<button class="toggleDeck" data-deck="${deck.name}">Hide Deck</button>`;
-      } else {
-        deckHtml += `<button class="toggleDeck" data-deck="${deck.name}">Load Deck</button>`;
-      }
-      deckElement.innerHTML = deckHtml;
+      const deckEl = document.createElement("div");
+      deckEl.classList.add("deck");
       
-      if (deck.loaded) {
-        const addCardButton = document.createElement("button");
-        addCardButton.textContent = "Add Card from Collection";
-        addCardButton.addEventListener("click", () => addCardToDeck(deck));
-        deckElement.appendChild(addCardButton);
-        
-        const deckCardsContainer = document.createElement("div");
-        deckCardsContainer.classList.add("deck-cards", "grid-container");
-        deck.cards.forEach(card => {
-          const cardElement = createCardElement(card, "deck");
-          deckCardsContainer.appendChild(cardElement);
-        });
-        deckElement.appendChild(deckCardsContainer);
-      }
-      deckList.appendChild(deckElement);
-    });
-    document.querySelectorAll(".toggleDeck").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        const deckName = e.target.dataset.deck;
-        const deck = decks.find(d => d.name.toLowerCase() === deckName.toLowerCase());
+      // Header with deck name and toggle button
+      const header = document.createElement("div");
+      header.innerHTML = `<strong>${deck.name}</strong>`;
+      const toggleBtn = document.createElement("button");
+      toggleBtn.textContent = deck.loaded ? "Hide Deck" : "Load Deck";
+      toggleBtn.addEventListener("click", () => {
         deck.loaded = !deck.loaded;
         displayDecks();
       });
+      header.appendChild(toggleBtn);
+      deckEl.appendChild(header);
+      
+      // If deck is loaded, show its cards and "Add Card from Collection" button
+      if (deck.loaded) {
+        const addCardBtn = document.createElement("button");
+        addCardBtn.textContent = "Add Card from Collection";
+        addCardBtn.addEventListener("click", () => addCardToDeck(deck));
+        deckEl.appendChild(addCardBtn);
+        
+        const cardsContainer = document.createElement("div");
+        cardsContainer.classList.add("deck-cards", "grid-container");
+        deck.cards.forEach(card => {
+          const cardEl = createCardElement(card, "deck");
+          cardsContainer.appendChild(cardEl);
+        });
+        deckEl.appendChild(cardsContainer);
+      }
+      
+      deckList.appendChild(deckEl);
     });
   }
 
+  // Sorting event listeners for the Collection page
   sortNumber.addEventListener("change", displayCollection);
   sortCompetitor.addEventListener("input", displayCollection);
   sortEntrance.addEventListener("input", displayCollection);
