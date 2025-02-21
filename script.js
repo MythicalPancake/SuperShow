@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // DOM Elements
+  // DOM elements
   const navTabs = document.querySelectorAll(".nav-tab");
   const pages = document.querySelectorAll(".page");
   const scanCardButton = document.getElementById("scanCard");
@@ -89,20 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let filtered = collection.slice();
     
     const selectedNumber = sortNumber.value;
-    const selectedCompetitor = sortCompetitor.value.toLowerCase();
-    const selectedEntrance = sortEntrance.value.toLowerCase();
+    const competitorText = sortCompetitor.value.toLowerCase().trim();
+    const entranceText = sortEntrance.value.toLowerCase().trim();
     
     if (selectedNumber !== "all") {
       filtered = filtered.filter(card => card.number == selectedNumber);
     }
-    if (selectedCompetitor.trim() !== "" && selectedCompetitor !== "all") {
+    if (competitorText !== "") {
       filtered = filtered.filter(card =>
-        card.competitor.toLowerCase().includes(selectedCompetitor)
+        card.competitor.toLowerCase().includes(competitorText)
       );
     }
-    if (selectedEntrance.trim() !== "" && selectedEntrance !== "all") {
+    if (entranceText !== "") {
       filtered = filtered.filter(card =>
-        card.entrance.toLowerCase().includes(selectedEntrance)
+        card.entrance.toLowerCase().includes(entranceText)
       );
     }
     
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Create card element (context: "search", "collection", or "deck")
+  // Create card element for "search" and "collection" contexts.
   function createCardElement(card, context) {
     const el = document.createElement("div");
     el.classList.add("card");
@@ -133,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const btn = document.createElement("button");
         btn.textContent = "Remove from Collection";
         btn.addEventListener("click", () => {
-          // Remove only one occurrence (if duplicates exist)
           const idx = collection.findIndex(c => c === card);
           if (idx > -1) {
             collection.splice(idx, 1);
@@ -149,18 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         el.appendChild(btn);
       }
-    } else if (context === "deck") {
-      const btn = document.createElement("button");
-      btn.textContent = "Add to Deck";
-      btn.addEventListener("click", () => {
-        addToDeck(card);
-      });
-      el.appendChild(btn);
     }
     return el;
   }
 
-  // Function to add a card to a deck
+  // Function to add a card to a deck (from collection or search)
   function addToDeck(card) {
     if (decks.length === 0) {
       alert("No decks available. Create one first.");
@@ -177,6 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Function to remove a card from a deck
+  function removeCardFromDeck(deck, cardIndex) {
+    deck.cards.splice(cardIndex, 1);
+    displayDecks();
+  }
+
   // Function to add a card from the collection to a specific deck (from deck page)
   function addCardToDeck(deck) {
     const cardName = prompt("Enter the name of the card from your collection to add to this deck:");
@@ -190,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Deck functionality
+  // Deck functionality: Create a new deck.
   createDeckButton.addEventListener("click", () => {
     const deckName = prompt("Enter deck name:");
     if (deckName) {
@@ -199,16 +197,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Display decks with Load/Hide toggle and an "Add Card" button when loaded
+  // Display decks with Load/Hide toggle, Remove Deck, and card removal within deck.
   function displayDecks() {
     deckList.innerHTML = "";
-    decks.forEach(deck => {
+    decks.forEach((deck, deckIndex) => {
       const deckEl = document.createElement("div");
       deckEl.classList.add("deck");
       
-      // Header with deck name and toggle button
+      // Deck header with deck name, toggle button, and remove deck button.
       const header = document.createElement("div");
       header.innerHTML = `<strong>${deck.name}</strong>`;
+      
       const toggleBtn = document.createElement("button");
       toggleBtn.textContent = deck.loaded ? "Hide Deck" : "Load Deck";
       toggleBtn.addEventListener("click", () => {
@@ -216,9 +215,18 @@ document.addEventListener("DOMContentLoaded", () => {
         displayDecks();
       });
       header.appendChild(toggleBtn);
+      
+      const removeDeckBtn = document.createElement("button");
+      removeDeckBtn.textContent = "Remove Deck";
+      removeDeckBtn.addEventListener("click", () => {
+        decks.splice(deckIndex, 1);
+        displayDecks();
+      });
+      header.appendChild(removeDeckBtn);
+      
       deckEl.appendChild(header);
       
-      // If deck is loaded, show its cards and "Add Card from Collection" button
+      // If deck is loaded, show its cards and an "Add Card from Collection" button.
       if (deck.loaded) {
         const addCardBtn = document.createElement("button");
         addCardBtn.textContent = "Add Card from Collection";
@@ -227,8 +235,20 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const cardsContainer = document.createElement("div");
         cardsContainer.classList.add("deck-cards", "grid-container");
-        deck.cards.forEach(card => {
-          const cardEl = createCardElement(card, "deck");
+        
+        deck.cards.forEach((card, cardIndex) => {
+          const cardEl = document.createElement("div");
+          cardEl.classList.add("card");
+          cardEl.innerHTML = `
+            <img src="${card.image}" alt="${card.name}" class="card-image">
+            <strong>${card.name}</strong>
+          `;
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "Remove from Deck";
+          removeBtn.addEventListener("click", () => {
+            removeCardFromDeck(deck, cardIndex);
+          });
+          cardEl.appendChild(removeBtn);
           cardsContainer.appendChild(cardEl);
         });
         deckEl.appendChild(cardsContainer);
@@ -238,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sorting event listeners for the Collection page
+  // Sorting event listeners for Collection page
   sortNumber.addEventListener("change", displayCollection);
   sortCompetitor.addEventListener("input", displayCollection);
   sortEntrance.addEventListener("input", displayCollection);
