@@ -1,125 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trading Card Collection</title>
-  <style>
-    body {
-      background-color: navy;
-      color: white;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    nav {
-      background-color: #333;
-      padding: 10px;
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    nav li {
-      margin-right: 20px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    h1 {
-      color: yellow;
-    }
-    .page {
-      padding: 20px;
-      min-height: calc(100vh - 60px);
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 10px;
-      width: 100%;
-    }
-    .card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      background-color: #444;
-      text-align: center;
-    }
-    .card img {
-      width: 100%;
-      height: auto;
-    }
-    .sorting-controls {
-      margin-bottom: 20px;
-    }
-    .sorting-controls label,
-    .sorting-controls select {
-      margin-right: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Collection Manager</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#home" class="nav-tab" data-tab="home">Home</a></li>
-      <li><a href="#collection" class="nav-tab" data-tab="collection">Collection</a></li>
-      <li><a href="#decks" class="nav-tab" data-tab="decks">Decks</a></li>
-      <li><a href="#search" class="nav-tab" data-tab="search">Search</a></li>
-    </ul>
-  </nav>
-  
-  <div id="pages">
-    <section id="home" class="page">
-      <h1>Welcome to Your Card Collection</h1>
-      <button id="scanCard">Scan a Card</button>
-      <button id="manualInput">Manually Add Card</button>
-    </section>
+    <nav>
+        <button class="nav-tab" data-tab="home">Home</button>
+        <button class="nav-tab" data-tab="search">Search</button>
+        <button class="nav-tab" data-tab="collection">Your Collection</button>
+        <button class="nav-tab" data-tab="decks">Decks</button>
+    </nav>
     
-    <section id="collection" class="page" style="display: none;">
-      <h1>Your Collection</h1>
-      <div class="sorting-controls">
-         <label for="sortNumber">Sort by Number:</label>
-         <select id="sortNumber">
-           <option value="all">All</option>
-           <option value="1">1</option>
-           <option value="2">2</option>
-           <option value="3">3</option>
-           <!-- Add more options as needed (or populate dynamically) -->
-         </select>
-         <label for="sortCompetitor">Sort by Competitor:</label>
-         <select id="sortCompetitor">
-           <option value="all">All</option>
-           <option value="Alpha">Alpha</option>
-           <option value="Beta">Beta</option>
-           <option value="Gamma">Gamma</option>
-         </select>
-         <label for="sortEntrance">Sort by Entrance:</label>
-         <select id="sortEntrance">
-           <option value="all">All</option>
-           <option value="Main">Main</option>
-           <option value="Side">Side</option>
-         </select>
-      </div>
-      <div id="collectionGrid" class="card-grid"></div>
-    </section>
+    <div id="home" class="page">
+        <h1>Welcome to Card Collection Manager</h1>
+    </div>
     
-    <section id="decks" class="page" style="display: none;">
-      <h1>Your Decks</h1>
-      <button id="createDeck">Create New Deck</button>
-      <div id="deckList"></div>
-    </section>
+    <div id="search" class="page" style="display:none;">
+        <h1>Search for Cards</h1>
+        <input type="text" id="searchInput" placeholder="Search by name">
+        <div id="searchResults" class="grid-container"></div>
+    </div>
     
-    <section id="search" class="page" style="display: none;">
-      <h1>Search Card Database</h1>
-      <input type="text" id="searchInput" placeholder="Search for a card...">
-      <div id="searchResults" class="card-grid"></div>
-    </section>
-  </div>
-  
-  <script src="script.js"></script>
+    <div id="collection" class="page" style="display:none;">
+        <h1>Your Collection</h1>
+        <label>Sort by Number:</label>
+        <select id="sortNumber">
+            <option value="all">All</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <!-- Add more numbers as needed -->
+        </select>
+        <label>Sort by Competitor:</label>
+        <input type="text" id="sortCompetitor" placeholder="Enter competitor">
+        <label>Sort by Entrance:</label>
+        <input type="text" id="sortEntrance" placeholder="Enter entrance">
+        <div id="collectionGrid" class="grid-container"></div>
+    </div>
+    
+    <div id="decks" class="page" style="display:none;">
+        <h1>Decks</h1>
+        <button id="createDeck">Create New Deck</button>
+        <div id="deckList"></div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
