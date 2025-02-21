@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   manualInputButton.addEventListener("click", () => {
     const cardName = prompt("Enter card name:");
-    const cardNumber = prompt("Enter card number (1-30):");
+    const cardNumber = prompt("Enter card number (1-30) competitor or entrance:");
     const cardCompetitor = prompt("Enter competitor:") || "Unknown";
     const cardEntrance = prompt("Enter entrance:") || "Unknown";
     const cardImage = prompt("Enter image URL (or leave blank for default):") || "placeholder.jpg";
     
-    if (cardName && cardNumber >= 1 && cardNumber <= 30) {
+    if (cardName && cardNumber >= 1 && cardNumber <= 30) or if (cardName && cardNumber = competitor) or if (cardName && cardNumber = entrance) {
       const card = {
         name: cardName,
         number: parseInt(cardNumber),
@@ -58,9 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       collection.push(card);
       displayCollection();
-    } else {
-      alert("Invalid input. Please enter a valid name and number between 1-30.");
-    }
+    } 
   });
 
   // Toggle Remove Mode on Collection page
