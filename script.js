@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let cardDatabase = [
     { name: "Fire Dragon", number: 5, competitor: "Alpha", entrance: "Main", image: "fire_dragon.jpg" },
     { name: "Water Serpent", number: 10, competitor: "Beta", entrance: "Side", image: "water_serpent.jpg" },
-    { name: "Earth Golem", number: 15, competitor: "Gamma", entrance: "Main", image: "earth_golem.jpg" }
+    { name: "Earth Golem", number: 15, competitor: "Gamma", entrance: "Main", image: "earth_golem.jpg" },
+    { name: "Earth Golem", number: null, competitor: "Hello", entrance: , image: "earth_golem.jpg" }
   ];
 
   // Navigation: show one page at a time.
