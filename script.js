@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Body Punches", number: 1, competitor:"", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Body-Punches.jpg?fit=450%2C614&ssl=1" },
     { name: "Boot off the Apron", number: 1, competitor:"", entrance:"", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/01-BootOfTheApron.png?fit=1502%2C2048&ssl=1" },
     { name:"Boss-Rate Boot", number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/08/1-Boss-Rate-Boot.jpg?fit=450%2C614&ssl=1"},
-    {name:"Chain-Wrapped Fist",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Chain-Wrapped-Fist.jpg?fit=1502%2C2048&ssl=1}
+    {name:"Chain-Wrapped Fist",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Chain-Wrapped-Fist.jpg?fit=1502%2C2048&ssl=1"}
   ];
 
   // Navigation: show one page at a time.
