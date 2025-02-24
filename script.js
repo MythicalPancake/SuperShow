@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Water Serpent", number: null, competitor: "Alpha", entrance: "", image: "water_serpent.jpg" },
     // "Earth Golem" is associated with an entrance (perhaps indicating a special zone).
     { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" },
-    { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "1-American_Double_Punch.jpg" }
+    { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-American-Double-Punch.jpg?fit=450%2C614&ssl=1" }
   ];
 
   // Navigation: show one page at a time.
