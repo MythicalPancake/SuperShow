@@ -23,13 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // You can specify if a card is sorted by number, competitor, or entrance by
   // assigning appropriate values to these fields.
   let cardDatabase = [
-    // In this example, the card "Fire Dragon" is primarily associated with a number.
-    { name: "Fire Dragon", number: 5, competitor: "", entrance: "", image: "fire_dragon.jpg" },
-    // "Water Serpent" is associated with a competitor (e.g., a team name or sponsor).
-    { name: "Water Serpent", number: null, competitor: "Alpha", entrance: "", image: "water_serpent.jpg" },
-    // "Earth Golem" is associated with an entrance (perhaps indicating a special zone).
     { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" },
-    { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-American-Double-Punch.jpg?fit=450%2C614&ssl=1" }
+    { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-American-Double-Punch.jpg?fit=450%2C614&ssl=1" },
+    { name: "Body Punches", number: 1, competitor:"", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Body-Punches.jpg?fit=450%2C614&ssl=1" },
+    { name: "Boot off the Apron", number: 1, competitor:"", entrance:"", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/01-BootOfTheApron.png?fit=1502%2C2048&ssl=1" },
+    { name:"Boss-Rate Boot", number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/08/1-Boss-Rate-Boot.jpg?fit=450%2C614&ssl=1"},
+    {name:"Chain-Wrapped Fist",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Chain-Wrapped-Fist.jpg?fit=1502%2C2048&ssl=1}
   ];
 
   // Navigation: show one page at a time.
