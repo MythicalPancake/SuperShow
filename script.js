@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // You can specify if a card is sorted by number, competitor, or entrance by
   // assigning appropriate values to these fields.
   let cardDatabase = [
-    { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" },
     { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-American-Double-Punch.jpg?fit=450%2C614&ssl=1" },
     { name: "Body Punches", number: 1, competitor:"", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Body-Punches.jpg?fit=450%2C614&ssl=1" },
     { name: "Boot off the Apron", number: 1, competitor:"", entrance:"", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/01-BootOfTheApron.png?fit=1502%2C2048&ssl=1" },
