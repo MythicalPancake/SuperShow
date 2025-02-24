@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // "Water Serpent" is associated with a competitor (e.g., a team name or sponsor).
     { name: "Water Serpent", number: null, competitor: "Alpha", entrance: "", image: "water_serpent.jpg" },
     // "Earth Golem" is associated with an entrance (perhaps indicating a special zone).
-    { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" }
+    { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" },
+    { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "1-American-Double-Punch.jpg"}
   ];
 
   // Navigation: show one page at a time.
