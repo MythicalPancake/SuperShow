@@ -18,10 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let collection = [];
   let decks = [];
   let removeMode = false;
+  
+  // Card database: each card object can be customized here.
+  // You can specify if a card is sorted by number, competitor, or entrance by
+  // assigning appropriate values to these fields.
   let cardDatabase = [
-    { name: "Fire Dragon", number: 5, competitor: "Alpha", entrance: "Main", image: "fire_dragon.jpg" },
-    { name: "Water Serpent", number: 10, competitor: "Beta", entrance: "Side", image: "water_serpent.jpg" },
-    { name: "Earth Golem", number: 15, competitor: "Gamma", entrance: "Main", image: "earth_golem.jpg" }
+    // In this example, the card "Fire Dragon" is primarily associated with a number.
+    { name: "Fire Dragon", number: 5, competitor: "", entrance: "", image: "fire_dragon.jpg" },
+    // "Water Serpent" is associated with a competitor (e.g., a team name or sponsor).
+    { name: "Water Serpent", number: null, competitor: "Alpha", entrance: "", image: "water_serpent.jpg" },
+    // "Earth Golem" is associated with an entrance (perhaps indicating a special zone).
+    { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" }
   ];
 
   // Navigation: show one page at a time.
@@ -43,22 +50,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   manualInputButton.addEventListener("click", () => {
     const cardName = prompt("Enter card name:");
-    const cardNumber = prompt("Enter card number (1-30) competitor or entrance:");
-    const cardCompetitor = prompt("Enter competitor:") || "Unknown";
-    const cardEntrance = prompt("Enter entrance:") || "Unknown";
+    const cardNumber = prompt("Enter card number (or leave blank if not applicable):");
+    const cardCompetitor = prompt("Enter competitor (or leave blank if not applicable):") || "";
+    const cardEntrance = prompt("Enter entrance (or leave blank if not applicable):") || "";
     const cardImage = prompt("Enter image URL (or leave blank for default):") || "placeholder.jpg";
     
-    if (cardName && cardNumber >= 1 && cardNumber <= 30) or if (cardName && cardNumber = competitor) or if (cardName && cardNumber = entrance) {
+    // You can decide what fields are required based on your data model.
+    if (cardName && (cardNumber || cardCompetitor || cardEntrance)) {
       const card = {
         name: cardName,
-        number: parseInt(cardNumber),
+        // Convert cardNumber to a number if provided; otherwise, keep it null.
+        number: cardNumber ? parseInt(cardNumber) : null,
         competitor: cardCompetitor,
         entrance: cardEntrance,
         image: cardImage
       };
       collection.push(card);
       displayCollection();
-    } 
+    } else {
+      alert("Invalid input. Please enter a valid card name and at least one category value.");
+    }
   });
 
   // Toggle Remove Mode on Collection page
