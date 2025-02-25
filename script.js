@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // You can specify if a card is sorted by number, competitor, or entrance by
   // assigning appropriate values to these fields.
   let cardDatabase = [
+    // #1
+    // {name:"",number:1,competitor:"",entrance:"",image:""},
     { name: "American Double Punch", number: 1, competitor: "", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-American-Double-Punch.jpg?fit=450%2C614&ssl=1" },
     { name: "Body Punches", number: 1, competitor:"", entrance: "", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Body-Punches.jpg?fit=450%2C614&ssl=1" },
     { name: "Boot off the Apron", number: 1, competitor:"", entrance:"", image: "https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/01-BootOfTheApron.png?fit=1502%2C2048&ssl=1" },
@@ -46,7 +48,35 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Knuckle Sandwich",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Knuckle-Sandwich.jpg?fit=450%2C614&ssl=1"},
     {name:"Knock It off",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/1-Knock-It-Off.jpg?fit=450%2C614&ssl=1"},
     {name:"Knuckle Up",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/1-Knuckle-Up.jpg?fit=450%2C614&ssl=1"},
-    {name:"Ladder",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Ladder.jpg?fit=450%2C614&ssl=1"}
+    {name:"Ladder",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Ladder.jpg?fit=450%2C614&ssl=1"},
+    {name:"Leap Frog",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Leap-Frog.jpg?fit=450%2C614&ssl=1"},
+    {name:"Ledgendary Punch",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/04/1-Legendary-Punch.jpg?fit=450%2C614&ssl=1"},
+    {name:"Lift the Boot",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Lift-the-Boot.jpg?fit=450%2C614&ssl=1"},
+    {name:"Monogolian Chop",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/1-Mongolian-Chop.jpg?fit=450%2C614&ssl=1"},
+    {name:"Machine Gun Chops",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Machine-Gun-Chops.jpg?fit=1502%2C2048&ssl=1"},
+    {name:"Mule Kick",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/1-Mule-Kick.jpg?fit=450%2C614&ssl=1"},
+    {name:"One-Two Punch",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-One-Two-Punch.jpg?fit=450%2C614&ssl=1"},
+    {name:"Overshot",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Overshot.jpg?fit=450%2C614&ssl=1"},
+    {name:"Palm Strike",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Palm-Strike.jpg?fit=1502%2C2048&ssl=1"},
+    {name:"Pineapple",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/04/1-Pineapple.jpg?fit=450%2C614&ssl=1"},
+    {name:"Rib Jab",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/06/1-Rib-Jab.jpg?fit=450%2C614&ssl=1"},
+    {name:"Punch",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/1-Punch.jpg?fit=450%2C614&ssl=1"},
+    {name:"Sheepish Collection",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/12/1-Sheepish-Collection.jpg?fit=450%2C614&ssl=1"},
+    {name:"Smack in the Head",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/05/1-Smack-in-the-Head.jpg?fit=450%2C614&ssl=1"},
+    {name:"Smack in the Head",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/08/1-Smack-in-the-Head-V2.jpg?fit=450%2C614&ssl=1"},
+    {name:"Snap Punch",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Snap-Punch.jpg?fit=450%2C614&ssl=1"},
+    {name:"Splash off the Apron",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/01-SplashOffTheApron.png?fit=1502%2C2048&ssl=1"},
+    {name:"Stiff Right Hand",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Stiff-Right-Hand.jpg?fit=1502%2C2048&ssl=1"},
+    {name:"Tackle",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Tackle.jpg?fit=450%2C614&ssl=1"},
+    {name:"Thunderbolt & Lightning Very, Very Frightening!",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/08/1-Thunderbolt-Lightning-Very-Very-Frightening.jpg?fit=450%2C614&ssl=1"},
+    {name:"Springboard",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/1-Springboard.jpg?fit=450%2C614&ssl=1"},
+    {name:"Trip Up",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/10/1-Trip-Up.jpg?fit=450%2C614&ssl=1"},
+    {name:"Volley of Strikes",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Volley-of-Strikes.jpg?fit=450%2C614&ssl=1"},
+    {name:"Wind Up",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Wind-Up.jpg?fit=450%2C614&ssl=1"},
+    {name:"Yellow Card",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/10/1-Yellow-Card-1.jpg?fit=450%2C614&ssl=1"},
+    // #2
+    // {name:"",number:2,competitor:"",entrance:"",image:""},
+    {name:"",number:2,competitor:"",entrance:"",image:""},
   ];
 
   // Navigation: show one page at a time.
