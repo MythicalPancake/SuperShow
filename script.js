@@ -29,7 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
     { name:"Boss-Rate Boot", number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/08/1-Boss-Rate-Boot.jpg?fit=450%2C614&ssl=1"},
     {name:"Chain-Wrapped Fist",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-Chain-Wrapped-Fist.jpg?fit=1502%2C2048&ssl=1"},
     {name: "Cheap Shot", number:1, competitor:"", entrance:"", image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Cheap-Shot.jpg?fit=450%2C614&ssl=1" },
-    {name:"Chop Down", number:1, competitor:"", entrance: "", image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Chop-Down.jpg?fit=450%2C614&ssl=1"}
+    {name:"Chop Down", number:1, competitor:"", entrance: "", image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Chop-Down.jpg?fit=450%2C614&ssl=1"},
+    {name:"Chop in the Corner",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/1-Chop-in-the-Corner.jpg?fit=450%2C614&ssl=1"},
+    {name:"Chortling Low Blow",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/02/1-Chortling-Low-Blow.jpg?fit=450%2C614&ssl=1"},
+    {name:"Cold Snap",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-Cold-Snap.jpg?fit=450%2C614&ssl=1"},
+    {name:"Cosmic Smash",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/02/1-Cosmic-Smash-1.jpg?fit=450%2C614&ssl=1"},
+    {name:"Deflect",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/11/1-Deflect.jpg?fit=450%2C614&ssl=1"},
+    {name:"Drumstick Solo",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/01-DrumstickSolo.jpg?fit=1502%2C2048&ssl=1"},
+    {name:"Eye Poke",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/1-Eye-Poke.jpg?fit=450%2C614&ssl=1"},
+    {name:"Felt That",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/08/1-Felt-That.jpg?fit=450%2C614&ssl=1"},
+    {name:"Finger Poke of Doom",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Finger-Poke-of-Doom.jpg?fit=450%2C614&ssl=1"},
+    {name:"Flying Super Snape Face Punch",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Flying-Super-Snap-Face-Punch.jpg?fit=450%2C614&ssl=1"},
+    {name:"Gunfire",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/11/1-Gunfire.jpg?fit=450%2C614&ssl=1"},
+    {name:"Hold Back",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/01-PushBack.png?fit=1502%2C2048&ssl=1"},
+    {name:"Kendo Stick",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Kendo-Stick.jpg?fit=450%2C614&ssl=1"},
+    {name:"Knuckle Sandwich",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Knuckle-Sandwich.jpg?fit=450%2C614&ssl=1"},
+    {name:"Knock It off",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/1-Knock-It-Off.jpg?fit=450%2C614&ssl=1"},
+    {name:"Knuckle Up",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/1-Knuckle-Up.jpg?fit=450%2C614&ssl=1"},
+    {name:"Ladder",number:1,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/09/1-Ladder.jpg?fit=450%2C614&ssl=1"}
   ];
 
   // Navigation: show one page at a time.
