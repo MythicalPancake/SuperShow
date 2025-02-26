@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Card Collection Manager</title>
   <style>
     body {
@@ -64,26 +64,6 @@
       margin-top: 10px;
     }
   </style>
-  <!-- Firebase CDN Scripts -->
-<script type="module">
-  
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
-
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAyoptkywo9KSijN39m2lhDAw13QKaNgvI",
-    authDomain: "supershow-3a864.firebaseapp.com",
-    projectId: "supershow-3a864",
-    storageBucket: "supershow-3a864.firebasestorage.app",
-    messagingSenderId: "1040370821530",
-    appId: "1:1040370821530:web:86cff0ad27711db2117223",
-    measurementId: "G-3VB48GYC8C"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  </script>
 </head>
 <body>
   <nav>
@@ -101,29 +81,57 @@
 
   <div id="search" class="page">
     <h1>Search for Cards</h1>
-    <input type="text" id="searchInput" placeholder="Search by name" />
+    <input type="text" id="searchInput" placeholder="Search by name">
     <div id="searchResults" class="grid-container"></div>
   </div>
 
   <div id="collection" class="page">
     <h1>Your Collection</h1>
     <button id="toggleRemoveMode">Enable Remove Mode</button>
-    <br /><br />
+    <br/><br/>
     <label>Sort by Number:</label>
     <select id="sortNumber">
       <option value="all">All</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
       <!-- Additional options as needed -->
     </select>
     <label>Sort by Competitor:</label>
-    <input type="text" id="sortCompetitor" placeholder="Type competitor" />
+    <input type="text" id="sortCompetitor" placeholder="Enter competitor name">
     <label>Sort by Entrance:</label>
-    <input type="text" id="sortEntrance" placeholder="Type entrance" />
-    <br /><br />
+    <input type="text" id="sortEntrance" placeholder="Enter entrance name">
+      <br/><br/>
+    <!-- New search input to filter by card name in your collection -->
     <label>Search by Card Name:</label>
-    <input type="text" id="collectionSearch" placeholder="Enter card name" />
+    <input type="text" id="collectionSearch" placeholder="Enter card name">
     <div id="collectionGrid" class="grid-container"></div>
   </div>
 
@@ -133,353 +141,6 @@
     <div id="deckList"></div>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // DOM elements
-      const navTabs = document.querySelectorAll(".nav-tab");
-      const pages = document.querySelectorAll(".page");
-      const scanCardButton = document.getElementById("scanCard");
-      const manualInputButton = document.getElementById("manualInput");
-      const searchInput = document.getElementById("searchInput");
-      const searchResults = document.getElementById("searchResults");
-      const collectionGrid = document.getElementById("collectionGrid");
-      const sortNumber = document.getElementById("sortNumber");
-      const sortCompetitor = document.getElementById("sortCompetitor");
-      const sortEntrance = document.getElementById("sortEntrance");
-      const collectionSearch = document.getElementById("collectionSearch");
-      const toggleRemoveButton = document.getElementById("toggleRemoveMode");
-      const createDeckButton = document.getElementById("createDeck");
-      const deckList = document.getElementById("deckList");
-
-      // Data storage variables
-      let collection = [];
-      let decks = [];
-      let removeMode = false;
-      // Card database (customize as needed)
-      let cardDatabase = [
-        { name: "Fire Dragon", number: 5, competitor: "", entrance: "", image: "fire_dragon.jpg" },
-        { name: "Water Serpent", number: null, competitor: "Alpha", entrance: "", image: "water_serpent.jpg" },
-        { name: "Earth Golem", number: null, competitor: "", entrance: "Main", image: "earth_golem.jpg" }
-      ];
-
-      // Firebase integration: current user
-      let currentUser = null;
-
-      // Save user data (collection & decks) to Firestore
-      function saveData() {
-        if (!currentUser) return;
-        db.collection("users")
-          .doc(currentUser.uid)
-          .set(
-            {
-              collection: collection,
-              decks: decks
-            },
-            { merge: true }
-          )
-          .then(() => {
-            console.log("Data saved.");
-          })
-          .catch((error) => {
-            console.error("Error saving data:", error);
-          });
-      }
-
-      // Load user data from Firestore
-      function loadData() {
-        if (!currentUser) return;
-        db.collection("users")
-          .doc(currentUser.uid)
-          .get()
-          .then((doc) => {
-            if (doc.exists) {
-              const data = doc.data();
-              collection = data.collection || [];
-              decks = data.decks || [];
-            }
-            displayCollection();
-            displayDecks();
-          })
-          .catch((error) => {
-            console.error("Error loading data:", error);
-          });
-      }
-
-      // Authentication state listener
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          currentUser = user;
-          loadData();
-        } else {
-          // For this demo, sign in anonymously if no user is signed in.
-          auth
-            .signInAnonymously()
-            .catch((error) => {
-              console.error("Anonymous sign in failed:", error);
-            });
-        }
-      });
-
-      // Navigation: show one page at a time.
-      function showPage(target) {
-        pages.forEach((page) => page.classList.remove("active"));
-        document.getElementById(target).classList.add("active");
-      }
-      navTabs.forEach((tab) => {
-        tab.addEventListener("click", (e) => {
-          e.preventDefault();
-          const target = e.target.getAttribute("data-tab");
-          showPage(target);
-        });
-      });
-
-      // Home page functions
-      scanCardButton.addEventListener("click", () => {
-        alert("Scanning feature not implemented yet.");
-      });
-      manualInputButton.addEventListener("click", () => {
-        const cardName = prompt("Enter card name:");
-        const cardNumber = prompt("Enter card number (or leave blank if not applicable):");
-        const cardCompetitor = prompt("Enter competitor (or leave blank if not applicable):") || "";
-        const cardEntrance = prompt("Enter entrance (or leave blank if not applicable):") || "";
-        const cardImage = prompt("Enter image URL (or leave blank for default):") || "placeholder.jpg";
-
-        if (cardName && (cardNumber || cardCompetitor || cardEntrance)) {
-          const card = {
-            name: cardName,
-            number: cardNumber ? parseInt(cardNumber) : null,
-            competitor: cardCompetitor,
-            entrance: cardEntrance,
-            image: cardImage
-          };
-          collection.push(card);
-          displayCollection();
-          saveData();
-        } else {
-          alert("Invalid input. Please enter a valid card name and at least one category value.");
-        }
-      });
-
-      // Toggle Remove Mode on Collection page
-      toggleRemoveButton.addEventListener("click", () => {
-        removeMode = !removeMode;
-        toggleRemoveButton.textContent = removeMode ? "Disable Remove Mode" : "Enable Remove Mode";
-        displayCollection();
-      });
-
-      // Search functionality for card database
-      searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase();
-        searchResults.innerHTML = "";
-        const filteredCards = cardDatabase.filter((card) =>
-          card.name.toLowerCase().includes(query)
-        );
-        filteredCards.forEach((card) => {
-          const cardEl = createCardElement(card, "search");
-          searchResults.appendChild(cardEl);
-        });
-      });
-
-      // Event listener for collection search (by card name)
-      collectionSearch.addEventListener("input", displayCollection);
-
-      // Display collection with sorting
-      function displayCollection() {
-        collectionGrid.innerHTML = "";
-        let filtered = collection.slice();
-
-        const selectedNumber = sortNumber.value;
-        const competitorText = sortCompetitor.value.toLowerCase().trim();
-        const entranceText = sortEntrance.value.toLowerCase().trim();
-        const nameText = collectionSearch.value.toLowerCase().trim();
-
-        if (selectedNumber !== "all") {
-          filtered = filtered.filter((card) => card.number == selectedNumber);
-        }
-        if (competitorText !== "") {
-          filtered = filtered.filter((card) =>
-            card.competitor.toLowerCase().includes(competitorText)
-          );
-        }
-        if (entranceText !== "") {
-          filtered = filtered.filter((card) =>
-            card.entrance.toLowerCase().includes(entranceText)
-          );
-        }
-        if (nameText !== "") {
-          filtered = filtered.filter((card) =>
-            card.name.toLowerCase().includes(nameText)
-          );
-        }
-
-        filtered.forEach((card) => {
-          const cardEl = createCardElement(card, "collection");
-          collectionGrid.appendChild(cardEl);
-        });
-      }
-
-      // Create card element for "search" and "collection" contexts.
-      function createCardElement(card, context) {
-        const el = document.createElement("div");
-        el.classList.add("card");
-        el.innerHTML = `
-          <img src="${card.image}" alt="${card.name}" class="card-image">
-          <strong>${card.name}</strong>
-        `;
-        if (context === "search") {
-          const btn = document.createElement("button");
-          btn.textContent = "Add to Collection";
-          btn.addEventListener("click", () => {
-            collection.push(card);
-            displayCollection();
-            saveData();
-          });
-          el.appendChild(btn);
-        } else if (context === "collection") {
-          if (removeMode) {
-            const btn = document.createElement("button");
-            btn.textContent = "Remove from Collection";
-            btn.addEventListener("click", () => {
-              const idx = collection.findIndex((c) => c === card);
-              if (idx > -1) {
-                collection.splice(idx, 1);
-                displayCollection();
-                saveData();
-              }
-            });
-            el.appendChild(btn);
-          } else {
-            const btn = document.createElement("button");
-            btn.textContent = "Add to Deck";
-            btn.addEventListener("click", () => {
-              addToDeck(card);
-            });
-            el.appendChild(btn);
-          }
-        }
-        return el;
-      }
-
-      // Function to add a card to a deck (from collection or search)
-      function addToDeck(card) {
-        if (decks.length === 0) {
-          alert("No decks available. Create one first.");
-          return;
-        }
-        const deckName = prompt("Enter the deck name to add this card:");
-        if (!deckName) return;
-        const deck = decks.find(
-          (d) => d.name.toLowerCase() === deckName.toLowerCase()
-        );
-        if (deck) {
-          deck.cards.push(card);
-          displayDecks();
-          saveData();
-        } else {
-          alert("Deck not found.");
-        }
-      }
-
-      // Function to remove a card from a deck
-      function removeCardFromDeck(deck, cardIndex) {
-        deck.cards.splice(cardIndex, 1);
-        displayDecks();
-        saveData();
-      }
-
-      // Function to add a card from the collection to a specific deck (from deck page)
-      function addCardToDeck(deck) {
-        const cardName = prompt("Enter the name of the card from your collection to add to this deck:");
-        if (!cardName) return;
-        const card = collection.find(
-          (c) => c.name.toLowerCase() === cardName.toLowerCase()
-        );
-        if (card) {
-          deck.cards.push(card);
-          displayDecks();
-          saveData();
-        } else {
-          alert("Card not found in your collection.");
-        }
-      }
-
-      // Deck functionality: Create a new deck.
-      createDeckButton.addEventListener("click", () => {
-        const deckName = prompt("Enter deck name:");
-        if (deckName) {
-          decks.push({ name: deckName, cards: [], loaded: false });
-          displayDecks();
-          saveData();
-        }
-      });
-
-      // Display decks with Load/Hide toggle, Remove Deck, and card removal within deck.
-      function displayDecks() {
-        deckList.innerHTML = "";
-        decks.forEach((deck, deckIndex) => {
-          const deckEl = document.createElement("div");
-          deckEl.classList.add("deck");
-
-          // Deck header with deck name, toggle button, and remove deck button.
-          const header = document.createElement("div");
-          header.innerHTML = `<strong>${deck.name}</strong>`;
-
-          const toggleBtn = document.createElement("button");
-          toggleBtn.textContent = deck.loaded ? "Hide Deck" : "Load Deck";
-          toggleBtn.addEventListener("click", () => {
-            deck.loaded = !deck.loaded;
-            displayDecks();
-          });
-          header.appendChild(toggleBtn);
-
-          const removeDeckBtn = document.createElement("button");
-          removeDeckBtn.textContent = "Remove Deck";
-          removeDeckBtn.addEventListener("click", () => {
-            decks.splice(deckIndex, 1);
-            displayDecks();
-            saveData();
-          });
-          header.appendChild(removeDeckBtn);
-
-          deckEl.appendChild(header);
-
-          // If deck is loaded, show its cards and an "Add Card from Collection" button.
-          if (deck.loaded) {
-            const addCardBtn = document.createElement("button");
-            addCardBtn.textContent = "Add Card from Collection";
-            addCardBtn.addEventListener("click", () => addCardToDeck(deck));
-            deckEl.appendChild(addCardBtn);
-
-            const cardsContainer = document.createElement("div");
-            cardsContainer.classList.add("deck-cards", "grid-container");
-
-            deck.cards.forEach((card, cardIndex) => {
-              const cardEl = document.createElement("div");
-              cardEl.classList.add("card");
-              cardEl.innerHTML = `
-                <img src="${card.image}" alt="${card.name}" class="card-image">
-                <strong>${card.name}</strong>
-              `;
-              const removeBtn = document.createElement("button");
-              removeBtn.textContent = "Remove from Deck";
-              removeBtn.addEventListener("click", () => {
-                removeCardFromDeck(deck, cardIndex);
-              });
-              cardEl.appendChild(removeBtn);
-              cardsContainer.appendChild(cardEl);
-            });
-            deckEl.appendChild(cardsContainer);
-          }
-
-          deckList.appendChild(deckEl);
-        });
-      }
-
-      // Sorting event listeners for Collection page
-      sortNumber.addEventListener("change", displayCollection);
-      sortCompetitor.addEventListener("input", displayCollection);
-      sortEntrance.addEventListener("input", displayCollection);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
