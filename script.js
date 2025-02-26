@@ -78,6 +78,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // {name:"",number:2,competitor:"",entrance:"",image:""},
     {name:"",number:2,competitor:"",entrance:"",image:""},
   ];
+ 
+  // Save collection and decks to localStorage
+  function saveData() {
+    localStorage.setItem("collection", JSON.stringify(collection));
+    localStorage.setItem("decks", JSON.stringify(decks));
+  }
+
+  // Load collection and decks from localStorage
+  function loadData() {
+    collection = JSON.parse(localStorage.getItem("collection")) || [];
+    decks = JSON.parse(localStorage.getItem("decks")) || [];
+  }
+
+  // Call loadData() on startup
+  loadData();
+  displayCollection();
+  displayDecks();
 
   // Navigation: show one page at a time.
   function showPage(target) {
@@ -115,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       collection.push(card);
       displayCollection();
+      saveData();
     } else {
       alert("Invalid input. Please enter a valid card name and at least one category value.");
     }
@@ -183,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", () => {
         collection.push(card);
         displayCollection();
+        saveData();
       });
       el.appendChild(btn);
     } else if (context === "collection") {
@@ -194,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (idx > -1) {
             collection.splice(idx, 1);
             displayCollection();
+            saveData();
           }
         });
         el.appendChild(btn);
@@ -221,6 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (deck) {
       deck.cards.push(card);
       displayDecks();
+      saveData();
     } else {
       alert("Deck not found.");
     }
@@ -230,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function removeCardFromDeck(deck, cardIndex) {
     deck.cards.splice(cardIndex, 1);
     displayDecks();
+    saveData();
   }
 
   // Function to add a card from the collection to a specific deck (from deck page)
@@ -240,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (card) {
       deck.cards.push(card);
       displayDecks();
+      saveData();
     } else {
       alert("Card not found in your collection.");
     }
@@ -251,6 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (deckName) {
       decks.push({ name: deckName, cards: [], loaded: false });
       displayDecks();
+      saveData();
     }
   });
 
@@ -278,6 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
       removeDeckBtn.addEventListener("click", () => {
         decks.splice(deckIndex, 1);
         displayDecks();
+        saveData();
       });
       header.appendChild(removeDeckBtn);
       
