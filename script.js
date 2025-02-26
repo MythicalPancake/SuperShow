@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortNumber = document.getElementById("sortNumber");
   const sortCompetitor = document.getElementById("sortCompetitor");
   const sortEntrance = document.getElementById("sortEntrance");
+  const collectionSearch = document.getElementById("collectionSearch");
   const toggleRemoveButton = document.getElementById("toggleRemoveMode");
   const createDeckButton = document.getElementById("createDeck");
   const deckList = document.getElementById("deckList");
@@ -157,6 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
       searchResults.appendChild(cardEl);
     });
   });
+  // Event listener for collection search (by card name)
+  collectionSearch.addEventListener("input", displayCollection);
 
   // Display collection with sorting
   function displayCollection() {
@@ -166,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedNumber = sortNumber.value;
     const competitorText = sortCompetitor.value.toLowerCase().trim();
     const entranceText = sortEntrance.value.toLowerCase().trim();
-    
+    const nameText = collectionSearch.value.toLowerCase().trim();
     if (selectedNumber !== "all") {
       filtered = filtered.filter(card => card.number == selectedNumber);
     }
@@ -180,7 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
         card.entrance.toLowerCase().includes(entranceText)
       );
     }
-    
+    if (nameText !== "") {
+      filtered = filtered.filter(card =>
+        card.name.toLowerCase().includes(nameText)
+      );
+    }
     filtered.forEach(card => {
       const cardEl = createCardElement(card, "collection");
       collectionGrid.appendChild(cardEl);
