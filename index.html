@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Card Collection Manager</title>
   <style>
+  
+<script type="module">
+  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAyoptkywo9KSijN39m2lhDAw13QKaNgvI",
+    authDomain: "supershow-3a864.firebaseapp.com",
+    projectId: "supershow-3a864",
+    storageBucket: "supershow-3a864.firebasestorage.app",
+    messagingSenderId: "1040370821530",
+    appId: "1:1040370821530:web:86cff0ad27711db2117223",
+    measurementId: "G-3VB48GYC8C"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
     body {
       background-color: navy;
       color: white;
@@ -125,9 +145,9 @@
       <!-- Additional options as needed -->
     </select>
     <label>Sort by Competitor:</label>
-    <input type="text" id="sortCompetitor" placeholder="Type competitor">
+    <input type="text" id="sortCompetitor" placeholder="Eype Competitor Name">
     <label>Sort by Entrance:</label>
-    <input type="text" id="sortEntrance" placeholder="Type entrance">
+    <input type="text" id="sortEntrance" placeholder="Enter Entrance Name">
       <br/><br/>
     <!-- New search input to filter by card name in your collection -->
     <label>Search by Card Name:</label>
