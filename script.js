@@ -175,7 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Test of Strength",number:3,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/3-Test-of-Strength.jpg?fit=450%2C614&ssl=1"},
     {name:"Twist and Tangle",number:3,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/3-Twist-and-Tangle.jpg?fit=450%2C614&ssl=1"},
     {name:"Twisting Wrist Lock",number:3,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/3-Twisting-Wrist-Lock.jpg?fit=450%2C614&ssl=1"},
-    {name:"Wear Down",number:3,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/3-Wear-Down.jpg?fit=450%2C614&ssl=1"}
+    {name:"Wear Down",number:3,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/3-Wear-Down.jpg?fit=450%2C614&ssl=1"},
+    // #4
+    // {name:"",number:4,competitor:"",entrance:"",image:""},
+    {name:"",number:4,competitor:"",entrance:"",image:""},
   ];
  
   // Save collection and decks to localStorage
