@@ -963,7 +963,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Wrap in the Steel Chains",number:15,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/15-Wrap-in-the-Steel-Chains.jpg?fit=450%2C614&ssl=1"},
     // #16
     // {name:"",number:16,competitor:"",entrance:"",image:""},
-    {name:"Snake Pitt",number:16,competitor:"",entrance:"",image:"https://i0.wp.com/supershowthegame.com/wp-content/uploads/2020/02/Copy-of-00-SnakePittALT-page-001.jpg?fit=549%2C402&ssl=1"},
+    {name:"",number:16,competitor:"",entrance:"",image:""},
   ];
  
   // Save collection and decks to localStorage
