@@ -1530,7 +1530,6 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Inferno Wool Cutter",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/10/23-Inferno-Wool-Cutter.jpg?fit=450%2C614&ssl=1"},
     {name:"Jackhammer",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/23-Jackhammer.png?fit=1502%2C2048&ssl=1"},
     {name:"King's Downfall",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/10/23-Kings-Downfall.jpg?fit=450%2C614&ssl=1"},
-    {name:"Kitchen Sink",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/supershowthegame.com/wp-content/uploads/2024/05/13-KitchenSink.jpg?fit=1502%2C2048&ssl=1"},
     {name:"Knockout Slam",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/23-Knockout-Slam.jpg?fit=450%2C614&ssl=1"},
     {name:"Lariat Takedown",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/23-Lariat-Takedown.jpg?fit=450%2C614&ssl=1"},
     {name:"Legendary American Sheep Union Break",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/08/23-Legendary-American-Sheep-Union-Break.jpg?fit=450%2C614&ssl=1"},
