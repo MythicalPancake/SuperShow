@@ -1502,7 +1502,6 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Backbreaker",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/23-Backbreaker.jpg?fit=450%2C614&ssl=1"},
     {name:"Backpack Stunner",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/23-Backpack-Stunner.jpg?fit=1502%2C2048&ssl=1"},
     {name:"Blindside Suplex",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/23-Blindside-Suplex.jpg?fit=450%2C614&ssl=1"},
-    {name:"Blindside Tackle",number:23,competitor:"",entrance"",image:"https://i0.wp.com/supershowthegame.com/wp-content/uploads/2024/03/23-BlindsideTackle-w-logo.jpg?fit=1502%2C2048&ssl=1"},
     {name:"Brain Buster",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/10/23-Brain-Buster.jpg?fit=450%2C614&ssl=1"},
     {name:"Corner Hurricanrana",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/01/23-Corner-Hurricanrana.jpg?fit=1502%2C2048&ssl=1"},
     {name:"Cosmic Corner Throw",number:23,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/23-Cosmic-Corner-Throw.jpg?fit=450%2C614&ssl=1"},
