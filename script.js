@@ -1978,6 +1978,13 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Who You Gonna Call?",number:null,competitor:"",entrance:"Who You Gonna Call?",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/06/000-EnrtranceWhoYouGonnaCall.png?fit=1502%2C2048&ssl=1"},
     {name:"Wedding Trashers",number:null,competitor:"",entrance:"Wedding Trashers",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/Wedding-Trashers.jpg?fit=614%2C450&ssl=1"},
     {name:"Y Wrestling Lowers the Steel Cage",number:null,competitor:"",entrance:"Y Wrestling Lowers the Steel Cage",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/Y-Wrestling-Lowers-the-Steel-Cage-1.jpg?fit=614%2C450&ssl=1"},
+    {name:"Agility Training with EDM",number:null,competitor:"",entrance:"Agility Training with EDM",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-AGILITY-TRAINING-WITH-EDM.png?fit=2048%2C1502&ssl=1"},
+    {name:"Defensive Training with Gia",number:null,competitor:"",entrance:"Defensive Training with Gia",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-DefensiveTrainingWithTheGia.png?fit=2048%2C1502&ssl=1"},
+    {name:"Grapple Training with The Masked Llama",number:null,competitor:"",entrance:"Grapple Training with The Masked Llama",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-GRAPPLE-TRAINING-WITH-THE-MASKED-LLAMA.png?fit=2048%2C1502&ssl=1"},
+    {name:"Power Training with Rock Newman",number:null,competitor:"",entrance:"Power Training with Rock Newman",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-powerTRAINING-WITH-Rock-Newman.png?fit=2048%2C1502&ssl=1"},
+    {name:"Strike Training with Big Shot",number:null,competitor:"",entrance:"Strike Training with Big Shot",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-STRIKE-TRAINING-WITH-THE-BIG-SHOT.png?fit=2048%2C1502&ssl=1"},
+    {name:"Submission Training with The Rising Sun",number:null,competitor:"",entrance:"Submission Training with The Rising Sun",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-SubmissionTrainingWithTheRisingSun.png?fit=2048%2C1502&ssl=1"},
+    {name:"Technique Training with Harrietta",number:null,competitor:"",entrance:"Technique Training with Harrietta",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-TechniqueTrainingWithTheHarrieta.png?fit=2048%2C1502&ssl=1"},
   ];
  
   // Save collection and decks to localStorage
