@@ -1985,6 +1985,23 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Strike Training with Big Shot",number:null,competitor:"",entrance:"Strike Training with Big Shot",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-STRIKE-TRAINING-WITH-THE-BIG-SHOT.png?fit=2048%2C1502&ssl=1"},
     {name:"Submission Training with The Rising Sun",number:null,competitor:"",entrance:"Submission Training with The Rising Sun",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-SubmissionTrainingWithTheRisingSun.png?fit=2048%2C1502&ssl=1"},
     {name:"Technique Training with Harrietta",number:null,competitor:"",entrance:"Technique Training with Harrietta",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/09/00-TechniqueTrainingWithTheHarrieta.png?fit=2048%2C1502&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/Entrance-Gear-Giant-Mode.jpg?fit=614%2C450&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/Entrance-Gear-High-Level-Parkour.jpg?fit=614%2C450&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/Entrance-Gear-Satellite-Scan.jpg?fit=614%2C450&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/Entrance-Gear-Solar-Shotgun.jpg?fit=614%2C450&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/Entrance-Gear-Summoning-Circle.jpg?fit=614%2C450&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2023/03/Entrance-Gear-Volcanic-Claymore.jpg?fit=614%2C450&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/02/000-EntranceTheBeastie.jpg?fit=2048%2C1502&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/02/000-EntrancePRS-001.jpg?fit=2048%2C1502&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/02/000-EntranceTheTeaPot.jpg?fit=2048%2C1502&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/02/000-EntranceTheTriumph.jpg?fit=2048%2C1502&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/02/000-EntranceTheTurtleDove.jpg?fit=2048%2C1502&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/L.F.F.-Hardcore-Title-Belt.jpg?fit=450%2C614&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/L.F.F.-Heavyweight-Title-Belt.jpg?fit=450%2C614&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/L.F.F.-Tag-Team-Title-Belt.jpg?fit=450%2C614&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/L.F.F.-Tornado-Title-Belt.jpg?fit=450%2C614&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/L.F.F.-Trios-Title-Belt.jpg?fit=450%2C614&ssl=1"},
+    {name:"",number:null,competitor:"",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/L.F.F.-Under-World-Title-Belt.jpg?fit=450%2C614&ssl=1"},
   ];
  
   // Save collection and decks to localStorage
