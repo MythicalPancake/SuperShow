@@ -2020,7 +2020,6 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"Al13n Invader",number:null,competitor:"Al13n Invader",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/01/Al13n-Invader-Errata.jpg?fit=450%2C614&ssl=1"},
     {name:"Alana Antoinette",number:null,competitor:"Alana Antoinette",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2022/12/Alana-Antoinette.jpg?fit=614%2C450&ssl=1"},
     {name:"Alex Hammerstone",number:null,competitor:"Alex Hammerstone",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2021/06/Alex-Hammerstone.jpg?fit=614%2C450&ssl=1"},
-    
     {name:"Alexander Slamilton Hardercore",number:null,competitor:"Alexander Slamilton Hardercore",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2024/02/00-AlexanderSlamiltonHardercore.jpg?fit=1495%2C2048&ssl=1"},
     {name:"Alton Black",number:null,competitor:"Alton Black",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/12/Alton-Black.jpg?fit=614%2C450&ssl=1"},
     {name:"Amazing Red",number:null,competitor:"Amazing Red",entrance:"",image:"https://i0.wp.com/www.srgpc.net/wp-content/uploads/2020/12/Amazing-Red.jpg?fit=614%2C450&ssl=1"},
