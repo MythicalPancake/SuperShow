@@ -140,6 +140,28 @@
     <button id="createDeck">Create New Deck</button>
     <div id="deckList"></div>
   </div>
+  <div id="draggable-element" draggable="true">Drag me!</div>
+<div id="drop-zone">Drop here</div>
+
+<script>
+  const draggableElement = document.getElementById('draggable-element');
+  const dropZone = document.getElementById('drop-zone');
+
+  draggableElement.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', event.target.id);
+  });
+
+  dropZone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  dropZone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text/plain');
+    const draggedElement = document.getElementById(data);
+    dropZone.appendChild(draggedElement);
+  });
+</script>
 
   <script src="script.js"></script>
 </body>
