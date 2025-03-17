@@ -63,9 +63,7 @@
     .deck .deck-cards {
       margin-top: 10px;
     }
-    note {
-      label.style.float = "right";
-    }
+    
   </style>
 </head>
 <body>
@@ -91,8 +89,17 @@
   <div id="collection" class="page">
     <h1>Your Collection</h1>
     <button id="toggleRemoveMode">Enable Remove Mode</button>
-    <label id="note">Hi quick reminder with the competitor search on some competitors they have parantheses at the end of the name that have 2020 or banned inside of them. Ex Ember Wolf(2020) Ember Wolf(banned)</label>
-    <br/><br/>
+    <div style="width: 300px; border: 1px solid black;">
+      <br/><br/>
+  <label id="myLabel">Hi quick reminder with the competitor search on some competitors they have parantheses at the end of the name that have 2020 or banned inside of them. Ex Ember Wolf(2020) Ember Wolf(banned)</label>
+  <p>Some other content here.</p>
+  <script>
+    const label = document.getElementById("myLabel");
+    label.style.float = "right";
+  </script>
+<div id="collection" class="page">
+
+
     
     <label>Sort by Number:</label>
     <select id="sortNumber">
