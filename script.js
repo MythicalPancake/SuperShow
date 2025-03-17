@@ -2497,7 +2497,72 @@ document.addEventListener("DOMContentLoaded", () => {
     {name:"",number:null,competitor:"",entrance:"",image:""},
     {name:"",number:null,competitor:"",entrance:"",image:""},
   ];
- 
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get all deck card containers
+    const deckContainers = document.querySelectorAll('.deck-cards');
+  
+    deckContainers.forEach(container => {
+      // Make each card inside the container draggable
+      container.querySelectorAll('.card').forEach(card => {
+        card.setAttribute('draggable', true);
+  
+        card.addEventListener('dragstart', (e) => {
+          card.classList.add('dragging');
+          // Some browsers (like Firefox) require dataTransfer data to be set.
+          e.dataTransfer.setData('text/plain', '');
+        });
+  
+        card.addEventListener('dragend', () => {
+          card.classList.remove('dragging');
+        });
+      });
+  
+      // Allow dropping within the container
+      container.addEventListener('dragover', (e) => {
+        e.preventDefault(); // Necessary to allow a drop
+  
+        const draggingCard = container.querySelector('.dragging');
+        if (!draggingCard) return;
+  
+        // Determine the card element to insert before, based on mouse position.
+        const afterElement = getDragAfterElement(container, e.clientY, e.clientX);
+        if (afterElement === null) {
+          container.appendChild(draggingCard);
+        } else {
+          container.insertBefore(draggingCard, afterElement);
+        }
+      });
+    });
+  
+    /**
+     * Returns the element that is closest to the current mouse position.
+     * This uses a simple distance measure from the card's center to the mouse pointer.
+     *
+     * @param {HTMLElement} container - The container holding the cards.
+     * @param {number} mouseY - The current mouse Y coordinate.
+     * @param {number} mouseX - The current mouse X coordinate.
+     * @returns {HTMLElement|null} - The closest card element or null.
+     */
+    function getDragAfterElement(container, mouseY, mouseX) {
+      // Get all cards except the one being dragged.
+      const draggableCards = [...container.querySelectorAll('.card:not(.dragging)')];
+  
+      return draggableCards.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        // Calculate the center of the card.
+        const cardCenterY = box.top + box.height / 2;
+        const cardCenterX = box.left + box.width / 2;
+        // Calculate Euclidean distance from mouse to card center.
+        const offset = Math.hypot(mouseX - cardCenterX, mouseY - cardCenterY);
+  
+        if (offset < closest.offset) {
+          return { offset: offset, element: child };
+        }
+        return closest;
+      }, { offset: Number.POSITIVE_INFINITY }).element;
+    }
+  });
+  
   // Save collection and decks to localStorage
   function saveData() {
     localStorage.setItem("collection", JSON.stringify(collection));
@@ -2732,7 +2797,48 @@ document.addEventListener("DOMContentLoaded", () => {
       header.appendChild(removeDeckBtn);
       
       deckEl.appendChild(header);
-      
+      document.addEventListener("DOMContentLoaded", () => {
+        const deckCards = document.getElementById("deckCards");
+    
+        // Allow dropping inside the deck-cards container
+        deckCards.addEventListener("dragover", (event) => {
+            event.preventDefault();
+        });
+    
+        deckCards.addEventListener("drop", (event) => {
+            event.preventDefault();
+            const cardId = event.dataTransfer.getData("text/plain");
+            const draggedCard = document.getElementById(cardId);
+            
+            if (draggedCard) {
+                deckCards.appendChild(draggedCard);
+            }
+        });
+    
+        // Function to make a card draggable
+        function makeCardDraggable(card) {
+            card.setAttribute("draggable", "true");
+            card.addEventListener("dragstart", (event) => {
+                event.dataTransfer.setData("text/plain", event.target.id);
+            });
+        }
+    
+        // Function to add a new card to the deck and make it draggable
+        function addCardToDeck(cardName) {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.textContent = cardName;
+            card.id = `card-${Date.now()}`; // Unique ID
+            makeCardDraggable(card);
+            deckCards.appendChild(card);
+        }
+    
+        // Example: Adding a test card to deck when clicking a button
+        document.getElementById("createDeck").addEventListener("click", () => {
+            addCardToDeck("New Card");
+        });
+    });
+    
       // If deck is loaded, show its cards and an "Add Card from Collection" button.
       if (deck.loaded) {
         const addCardBtn = document.createElement("button");
