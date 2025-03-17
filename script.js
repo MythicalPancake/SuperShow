@@ -2849,13 +2849,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const cardsContainer = document.createElement("div");
         cardsContainer.classList.add("deck-cards", "grid-container");
         
-        container.addEventListener('dragover', (e) => {
-          e.preventDefault(); // This is crucial!
-          e.dataTransfer.dropEffect = 'move';
-          // ... your code to determine where to place the card
-        });
-        
-        
         deck.cards.forEach((card, cardIndex) => {
           const cardEl = document.createElement("div");
           cardEl.classList.add("card");
