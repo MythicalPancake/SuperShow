@@ -49,6 +49,7 @@
       padding: 10px;
       background-color: #444;
       text-align: center;
+      cursor: grab;
     }
     .card img {
       width: 100%;
@@ -62,6 +63,12 @@
     }
     .deck .deck-cards {
       margin-top: 10px;
+      min-height: 200px;
+      border: 2px dashed #ccc;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
   </style>
 </head>
@@ -122,14 +129,12 @@
       <option value="28">28</option>
       <option value="29">29</option>
       <option value="30">30</option>
-      <!-- Additional options as needed -->
     </select>
     <label>Sort by Competitor:</label>
     <input type="text" id="sortCompetitor" placeholder="Enter competitor name">
     <label>Sort by Entrance:</label>
     <input type="text" id="sortEntrance" placeholder="Enter entrance name">
-      <br/><br/>
-    <!-- New search input to filter by card name in your collection -->
+    <br/><br/>
     <label>Search by Card Name:</label>
     <input type="text" id="collectionSearch" placeholder="Enter card name">
     <div id="collectionGrid" class="grid-container"></div>
@@ -138,30 +143,55 @@
   <div id="decks" class="page">
     <h1>Decks</h1>
     <button id="createDeck">Create New Deck</button>
-    <div id="deckList"></div>
+    <div id="deckList">
+      <div class="deck">
+        <h3>My Deck</h3>
+        <div class="deck-cards" id="deckCards"></div>
+      </div>
+    </div>
   </div>
-  <div id="draggable-element" draggable="true">Drag me!</div>
-<div id="drop-zone">Drop here</div>
 
-<script>
-  const draggableElement = document.getElementById('draggable-element');
-  const dropZone = document.getElementById('drop-zone');
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const deckCards = document.getElementById("deckCards");
 
-  draggableElement.addEventListener('dragstart', (event) => {
-    event.dataTransfer.setData('text/plain', event.target.id);
-  });
+      deckCards.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
 
-  dropZone.addEventListener('dragover', (event) => {
-    event.preventDefault();
-  });
+      deckCards.addEventListener("drop", (event) => {
+        event.preventDefault();
+        const cardId = event.dataTransfer.getData("text/plain");
+        const draggedCard = document.getElementById(cardId);
+        if (draggedCard) {
+          deckCards.appendChild(draggedCard);
+        }
+      });
 
-  dropZone.addEventListener('drop', (event) => {
-    event.preventDefault();
-    const data = event.dataTransfer.getData('text/plain');
-    const draggedElement = document.getElementById(data);
-    dropZone.appendChild(draggedElement);
-  });
-</script>
+      function makeCardDraggable(card) {
+        card.setAttribute("draggable", "true");
+        card.addEventListener("dragstart", (event) => {
+          event.dataTransfer.setData("text/plain", event.target.id);
+        });
+      }
+
+      function addCardToDeck(cardName) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.textContent = cardName;
+        card.id = `card-${Date.now()}`;
+        makeCardDraggable(card);
+        deckCards.appendChild(card);
+      }
+
+      document.getElementById("createDeck").addEventListener("click", () => {
+        addCardToDeck("New Card");
+      });
+    });
+  </script>
+</body>
+</html>
+
 
   <script src="script.js"></script>
 </body>
