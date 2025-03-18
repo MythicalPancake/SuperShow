@@ -105,6 +105,15 @@
       padding: 5px;
       z-index: 1000;      /* ensures it stays on top of other elements */
     }
+    .row-container {
+        display: flex; /* Use flexbox to arrange cards in a row */
+        flex-wrap: wrap; /* Allow cards to wrap to the next line if needed */
+        gap: 10px; /* Add some space between cards */
+    }
+
+    .row-container .card {
+        flex: 0 0 auto; /* Prevent cards from stretching */
+    }
 
   </style>
 </head>
