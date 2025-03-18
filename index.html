@@ -72,7 +72,16 @@
       padding: 5px;
       z-index: 1000;      /* ensures it stays on top of other elements */
     }
-      
+    #yourLabel {
+      position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
+      top: 60px;          /* adjust as needed */
+      right: 10px;        /* adjust as needed */
+      width: 300px; 
+      border: 1px solid black;
+      padding: 5px;
+      z-index: 1000;      /* ensures it stays on top of other elements */
+    }
+    
   </style>
 </head>
 <body>
@@ -87,6 +96,7 @@
     <h1>Welcome to Card Collection Manager</h1>
     <button id="scanCard">Scan a Card</button>
     <button id="manualInput">Manually Add Card</button>
+    <label id="yourLabel">Hi quick reminder with the manual input on the section where you can put in an image you need a web address for the image so I recconemend imagetourl.org</label>
   </div>
 
   <div id="search" class="page">
