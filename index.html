@@ -54,6 +54,7 @@
       text-align: center;
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
     
     .card img {
@@ -99,7 +100,12 @@
       padding: 5px;
       z-index: 1000;      /* ensures it stays on top of other elements */
     }
-    
+    #collectionGrid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* Creates 6 equal-width columns */
+      gap: 20px; /* Space between cards */
+    }
+
   </style>
 </head>
 <body>
