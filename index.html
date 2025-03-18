@@ -40,17 +40,22 @@
     }
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-template-columns: repeat(6, 1fr); /* Ensures 6 cards per row */
       gap: 10px;
       margin-top: 20px;
-      max-width: 100%; /* Make sure it doesn't overflow */
+      max-width: 100%;  /* Prevents overflow */
+      width: 100%; /* Takes up full available width */
     }
+    
     .card {
       border: 1px solid #ccc;
       padding: 10px;
       background-color: #444;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
+    
     .card img {
       width: 100%;
       height: auto;
@@ -64,6 +69,18 @@
     .deck .deck-cards {
       margin-top: 10px;
     }
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row on smaller screens */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on very small screens */
+      }
+    }
+
     #myLabel {
       position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
       top: 60px;          /* adjust as needed */
