@@ -40,8 +40,7 @@
     }
     .grid-container {
       display: grid;
-      grid-template-rows: auto 1fr; /* Add this line */
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-template-rows: auto 1fr;
       width: 100%;
       box-sizing: border-box;
     }
@@ -61,7 +60,7 @@
     }
     
     .top-row-container {
-      display: flex; /* Horizontal layout */
+      display: flex;
       width: 100%;
       box-sizing: border-box;
     }
@@ -74,8 +73,8 @@
     }
     
     .cards-container {
-      display: grid; /* Grid layout for numbered cards */
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Or your preferred column width */
       width: 100%;
       box-sizing: border-box;
     }
