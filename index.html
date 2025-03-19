@@ -39,12 +39,11 @@
       color: yellow;
     }
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 10px;
-      margin-top: 20px;
-      max-width: 100%;  /* Prevents overflow */
-      width: 100%; /* Takes up full available width */
+      display: grid; /* Use grid layout */
+      grid-template-rows: auto 1fr; /* Two rows: auto for top, 1fr for the rest */
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Keep your existing column layout */
+      width: 100%; /* Take up full width */
+      box-sizing: border-box; /* Include padding and border in width */
     }
     
     .card {
@@ -62,8 +61,10 @@
     }
     
     .top-row-container {
-      display: block; /* Make it a block-level element */
-      width: 100%; /* Take up full width */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      box-sizing: border-box;
     }
     
     .competitor-slot, .entrance-slot {
