@@ -61,21 +61,23 @@
     }
     
     .top-row-container {
-      display: flex; /* Makes the slots line up horizontally */
-      justify-content: flex-start; /* Aligns them to the start */
-      width: 100%; /* Take up full width */
-      box-sizing: border-box; /* Include padding and border in width */
+      display: flex; /* Horizontal layout */
+      width: 100%;
+      box-sizing: border-box;
     }
-
+  
     .competitor-slot, .entrance-slot {
-      flex: 1; /* Makes them take up equal space */
-      text-align: center; /* Centers the text */
-      padding: 10px; /* Add some padding */
-      box-sizing: border-box; /* Include padding and border in width */
+      flex: 1; /* Equal width */
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
     }
     
-    .competitor-slot, .entrance-slot {
-      display: inline-block; /* Make them inline blocks */
+    .cards-container {
+      display: grid; /* Grid layout for numbered cards */
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      width: 100%;
+      box-sizing: border-box;
     }
     
     .deck-slot{
