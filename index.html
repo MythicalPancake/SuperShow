@@ -39,7 +39,8 @@
       color: yellow;
     }
     .grid-container {
-      display: block; /* Make it a block-level element */
+      display: grid; /* Use grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Create responsive columns */
       width: 100%; /* Take up full width */
       box-sizing: border-box; /* Include padding and border in width */
     }
