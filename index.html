@@ -62,16 +62,12 @@
     }
     
     .top-row-container {
-      display: grid; /* Use grid layout */
-      grid-template-columns: 1fr 1fr; /* Two equal columns */
+      display: block; /* Make it a block-level element */
       width: 100%; /* Take up full width */
-      box-sizing: border-box; /* Include padding and border in width */
     }
     
     .competitor-slot, .entrance-slot {
-      text-align: center;
-      padding: 10px; /* Add some padding */
-      box-sizing: border-box;
+      display: inline-block; /* Make them inline blocks */
     }
     
     .deck-slot{
