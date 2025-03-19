@@ -59,10 +59,17 @@
     }
     
     .top-row-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-      box-sizing: border-box;
+      display: flex; /* Makes the slots line up horizontally */
+      justify-content: flex-start; /* Aligns them to the start */
+      width: 100%; /* Take up full width */
+      box-sizing: border-box; /* Include padding and border in width */
+    }
+
+    .competitor-slot, .entrance-slot {
+      flex: 1; /* Makes them take up equal space */
+      text-align: center; /* Centers the text */
+      padding: 10px; /* Add some padding */
+      box-sizing: border-box; /* Include padding and border in width */
     }
     
     .competitor-slot, .entrance-slot {
