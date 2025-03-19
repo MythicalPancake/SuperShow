@@ -62,14 +62,18 @@
     }
     
     .top-row-container {
-      display: flex; /* Makes the slots line up horizontally */
-      justify-content: flex-start; /* Aligns them to the start */
+      display: grid; /* Use grid layout */
+      grid-template-columns: 1fr 1fr; /* Two equal columns */
+      width: 100%; /* Take up full width */
+      box-sizing: border-box; /* Include padding and border in width */
     }
     
     .competitor-slot, .entrance-slot {
-      flex: 1; /* Makes them take up equal space */
-      text-align: center; /* Centers the text */
+      text-align: center;
+      padding: 10px; /* Add some padding */
+      box-sizing: border-box;
     }
+    
     .deck-slot{
       max-width: 250px;
       max-height: 400px;
