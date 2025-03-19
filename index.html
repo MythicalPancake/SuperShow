@@ -61,10 +61,19 @@
       max-height: 400px; /* Adjust this value as needed */
     }
     
+    .top-row-container {
+      display: flex; /* Makes the slots line up horizontally */
+      justify-content: flex-start; /* Aligns them to the start */
+    }
+    
+    .competitor-slot, .entrance-slot {
+      flex: 1; /* Makes them take up equal space */
+      text-align: center; /* Centers the text */
+    }
     .deck-slot{
-        max-width: 250px;
-        max-height: 400px;
-        overflow: auto;
+      max-width: 250px;
+      max-height: 400px;
+      overflow: auto;
     }
     .deck {
       border: 1px solid #ccc;
