@@ -130,6 +130,15 @@
       padding: 5px;
       z-index: 1000;      /* ensures it stays on top of other elements */
     }
+    #yourLabel {
+      position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
+      top: 60px;          /* adjust as needed */
+      right: 110px;        /* adjust as needed */
+      width: 300px; 
+      border: 1px solid black;
+      padding: 5px;
+      z-index: 1000;
+    }
     .row-container {
         display: flex; /* Use flexbox to arrange cards in a row */
         flex-wrap: wrap; /* Allow cards to wrap to the next line if needed */
@@ -160,7 +169,8 @@
 
   <div id="search" class="page">
     <h1>Search for Cards</h1>
-    <label id="myLabel">Competitor search has banned or 2020 on the end of it someitiems Ex:Ember Wolf(2020) Ember Wolf(banned)        Also if your trying to find competitor finishes you can search up the name or use competitor search an type in the competitor name.</label>
+    <label id="myLabel">Competitor search has banned or 2020 on the end of it someitiems Ex:Ember Wolf(2020) Ember Wolf(banned)</label>
+    <label id="2ndLabel"> Also if your trying to find competitor finishes you can search up the name or use competitor search an type in the competitor name.</label>
     <input type="text" id="searchInput" placeholder="Search by name">
     <input type="text" id="sortCompetitor" placeholder="Enter competitor name">
     <div id="searchResults" class="grid-container"></div>
