@@ -139,6 +139,15 @@
       padding: 5px;
       z-index: 1000;
     }
+    #dLabel {
+      position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
+      top: 60px;          /* adjust as needed */
+      right: 500px;        /* adjust as needed */
+      width: 300px; 
+      border: 1px solid black;
+      padding: 5px;
+      z-index: 1000;
+    }
     .row-container {
         display: flex; /* Use flexbox to arrange cards in a row */
         flex-wrap: wrap; /* Allow cards to wrap to the next line if needed */
@@ -171,6 +180,7 @@
     <h1>Search for Cards</h1>
     <label id="myLabel">Competitor search has banned or 2020 on the end of it someitiems Ex:Ember Wolf(2020) Ember Wolf(banned)</label>
     <label id="ndLabel"> Also if your trying to find competitor finishes you can search up the name or use competitor search and type in the competitor name.</label>
+    <label id="dLabel"> Always remember if you don't want the search to be slow choose a number or competitor or entrance. If you choose all thats 4000+ cards it searches.</label>
       <br/><br/>
      <label>Sort by Number:</label>
     <select id="searchSortNumber">
